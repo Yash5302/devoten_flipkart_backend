@@ -26,6 +26,11 @@ mongoose
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://devtown-flipkart-frontend.vercel.app");
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
 app.use(
   cors({
     origin: "https://devtown-flipkart-frontend.vercel.app",
